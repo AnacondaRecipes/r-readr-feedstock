@@ -35,6 +35,8 @@ requirements:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
     - r-bh
     - r-r6
     - r-rcpp >=0.12.0.5
