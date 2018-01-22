@@ -10,8 +10,8 @@ package:
 source:
   fn: readr_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/readr_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/readr/readr_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/readr_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/readr/readr_{{ version }}.tar.gz
   sha256: 1a29b99009a06f2cee18d08bc6201fd4985b6d45c76cefca65084dcc1a2f7cb3
 
 
