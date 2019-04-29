@@ -1,4 +1,4 @@
-{% set version = '1.1.1' %}
+{% set version = '1.3.1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/readr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/readr/readr_{{ version }}.tar.gz
-  sha256: 1a29b99009a06f2cee18d08bc6201fd4985b6d45c76cefca65084dcc1a2f7cb3
+  sha256: 33f94de39bb7f2a342fbb2bd4e5afcfec08798eac39672ee18042ac0b349e4f3
 
 build:
   merge_build_host: True  # [win]
@@ -23,7 +23,7 @@ build:
     - lib/R/lib/
     - lib/
 
-# Suggests: curl, testthat, knitr, rmarkdown, stringi, covr
+# Suggests: curl, testthat, knitr, rmarkdown, stringi, covr, spelling
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
@@ -40,7 +40,9 @@ requirements:
     - r-bh
     - r-r6
     - r-rcpp >=0.12.0.5
-    - r-hms
+    - r-clipr
+    - r-crayon
+    - r-hms >=0.4.1
     - r-tibble
 
   run:
@@ -49,7 +51,9 @@ requirements:
     - r-bh
     - r-r6
     - r-rcpp >=0.12.0.5
-    - r-hms
+    - r-clipr
+    - r-crayon
+    - r-hms >=0.4.1
     - r-tibble
 
 test:
@@ -81,26 +85,28 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: readr
-# Version: 1.1.1
+# Version: 1.3.1
 # Title: Read Rectangular Text Data
 # Description: The goal of 'readr' is to provide a fast and friendly way to read rectangular data (like 'csv', 'tsv', and 'fwf'). It is designed to flexibly parse many types of data found in the wild, while still cleanly failing when data unexpectedly changes.
 # Authors@R: c( person("Hadley", "Wickham", , "hadley@rstudio.com", "aut"), person("Jim", "Hester", , "james.hester@rstudio.com", c("aut", "cre")), person("Romain", "Francois", role = "aut"), person("R Core Team", role = "ctb", comment = "Date time code adapted from R"), person("RStudio", role = c("cph", "fnd")), person("Jukka", "Jylanki", role = c("ctb", "cph"), comment = "grisu3 implementation"), person("Mikkel", "Jrgensen", role = c("ctb", "cph"), comment = "grisu3 implementation"))
 # Encoding: UTF-8
-# Depends: R (>= 3.0.2)
+# Depends: R (>= 3.1)
 # LinkingTo: Rcpp, BH
-# Imports: Rcpp (>= 0.12.0.5), tibble, hms, R6
-# Suggests: curl, testthat, knitr, rmarkdown, stringi, covr
+# Imports: Rcpp (>= 0.12.0.5), tibble, hms (>= 0.4.1), R6, clipr, crayon, methods
+# Suggests: curl, testthat, knitr, rmarkdown, stringi, covr, spelling
 # License: GPL (>= 2) | file LICENSE
 # BugReports: https://github.com/tidyverse/readr/issues
 # URL: http://readr.tidyverse.org, https://github.com/tidyverse/readr
 # VignetteBuilder: knitr
-# RoxygenNote: 6.0.1
+# RoxygenNote: 6.1.1
+# SystemRequirements: GNU make
+# Language: en-US
 # NeedsCompilation: yes
-# Packaged: 2017-05-16 16:03:56 UTC; jhester
+# Packaged: 2018-12-20 16:06:40 UTC; jhester
 # Author: Hadley Wickham [aut], Jim Hester [aut, cre], Romain Francois [aut], R Core Team [ctb] (Date time code adapted from R), RStudio [cph, fnd], Jukka Jylanki [ctb, cph] (grisu3 implementation), Mikkel Jrgensen [ctb, cph] (grisu3 implementation)
 # Maintainer: Jim Hester <james.hester@rstudio.com>
 # Repository: CRAN
-# Date/Publication: 2017-05-16 19:03:57 UTC
+# Date/Publication: 2018-12-21 09:40:02 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
